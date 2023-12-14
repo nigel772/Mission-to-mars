@@ -8,14 +8,21 @@
     <style>
       p {
         text-align: center;
-        font-size: 60px;
+        font-size: 30px;
         margin-top: 0px;
         color: white;
       }
+      p1{
+        font-size: 30px;
+      }
       .snelheid{
         text-align: center;
-        font-size: 30px;
+        font-size: 25px;
         color: white;
+      }
+   .info2 img {
+        width: 12.5em;
+        display: block;
       }
       </style>
 </head>
@@ -34,7 +41,7 @@
             <a href="webcamfeeds.html">Webcamfeeds</a></br>
             <a href="bibliotheek.html">Bibliotheek</a></br>
             <a href="restaurant.html">Restaurant</a></br>
-            <a href="infovlucht.html">Vlucht-informatie</a></br>
+            <a href="infovlucht.html">Flight-information</a></br>
           </div>
         </div>
     <!--Logo-->
@@ -44,7 +51,7 @@
   <p id="klok"></p>
   <script>
   // datum tot wanneer
-  let countDownDate = new Date("Jul 14, 2024 12:00:00").getTime();
+  let countDownDate = new Date("Dec 14, 2034 12:00:00").getTime();
   
   // updtae elke 1 seconde
   let x = setInterval(function() {
@@ -72,11 +79,22 @@
     }
   }, 1000);
   </script>
-<p id class="snelheid"> Bestemming: Mars </br></br>
-  temperatuur op mars: -153 graden celsuis.</br>
-  temperatuur in de ruimte: -270 graden celsuis</br>
-  snelheid van het ruimteschip: 537 kilometer per seconde. </br>
+<p id class="snelheid"> Destination: Mars </br></br>
+  Temperature on Mars: -153 degrees Celsius.</br>
+  Temperature in space: -270 degrees Celsius.</br>
+  Spaceship Speed: 537 kilometers per second. </br></br>
+</p1>
+
+  <img src="../images/mars.jpg" alt="hoi" width="500em">
 </div>
-<div class="info2"></div>
+<div class="info2">  
+  <img src="../images/spaceship.jpeg" alt="hoi"></br>
+  <p1>Spaceship Material: Titanium and Aluminum.</br>
+    Fuel: Rocket kerosene, propane, and ethanol.</br>
+    Speed: 28.000 km/h.</br>
+    Spaceship has 300 rooms.</p1>
+    
+
+</div>
 </body>
 </html>

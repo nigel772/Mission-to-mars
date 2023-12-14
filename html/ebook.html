@@ -4,9 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
-    <title>Document</title>
+    <title>Ebook</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
+    <div class="wrapper">
+        <input id="toggler" type="checkbox">
+        <label for="toggler">
+          <img src="../images/menu.png" alt="menu" width="50px">
+        </label>
+        <div class="dropdown">
+          <a href="fitness.html">Wellnes/fitness</a></br>
+          <a href="games.html">Games</a></br>
+          <a href="webcamfeeds.html">Webcamfeeds</a></br>
+          <a href="bibliotheek.html">Bibliotheek</a></br>
+          <a href="restaurant.html">Restaurant</a></br>
+          <a href="infovlucht.html">Flight-information</a></br>
+        </div>
+      </div>
+        <!--Logo-->
+    <a href="../index.html"><img src="../images/logo.png" class="logo" alt="logo"></a> 
+    <!--button naar ebook-->
+    <div class="box6">
+        <img src="../images/cover1.png" alt="cover1"id="openEbook">
+        <img src="../images/cover2.png" alt="cover1"id="openCustomEbook">
+        <img src="../images/cover3.png" alt="cover3"id="openEbooks">
+      </div>
+      <div class="box7">
+      <img src="../images/cover4.png" alt="cover4"id="openUniqueEbook">
+      <img src="../images/cover5.png" alt="cover5"id="openEbookModal">
+      <img src="../images/cover6.png" alt="cover6"id="openBookPopup">
+    </div>
+<!--Eboek1-->
+      <div class="ebook-overlay" id="ebookOverlay">
+        <div class="ebook-container">
+          <span class="close-button" id="closeEbook">&times;</span>
+          <iframe class="ebook-iframe" id="ebookIframe" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+        </div>
+      </div>
+<!--Eboek2-->
+       <div class="custom-overlay" id="customEbookOverlay">
+        <div class="custom-container">
+          <span class="custom-close-button" id="customCloseEbook">&times;</span>
+          <iframe class="custom-iframe" id="customEbookIframe" src="https://archive.org/embed/pdfy-vJFcaYG7Xau9y5ZZ" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+        </div>
+      </div>
+<!--eboek3-->
+<div class="ebook-popup" id="ebookPopup">
+    <div class="ebook-wrapper">
+      <span class="close-ebook" id="closeEbookPopup">&times;</span>
+      <iframe class="ebook-iframe" id="ebookContentIframe" src="https://archive.org/embed/kybalionstudyofh00thre" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+  </div>
+<!--eboek4-->
+<div class="unique-popup" id="uniquePopup">
+  <div class="unique-wrapper">
+    <span class="unique-close-btn" id="uniqueCloseBtn">&times;</span>
+    <iframe class="unique-iframe" id="uniqueContentIframe"  src="https://archive.org/embed/gameoflifehowtop00shin" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+  </div>
+</div>
+<!--eboek5-->
+<div class="ebook-modal" id="ebookModal">
+  <div class="ebook-container">
+    <span class="ebook-close-btn" id="ebookCloseBtn">&times;</span>
+    <iframe class="ebook-iframe" id="openEbookModal"src="https://archive.org/embed/wonderfulwizardo00baumiala" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+  </div>
+</div>
+<!--eboek6-->
+<div class="book-popup" id="bookPopup">
+  <div class="book-wrapper">
+    <span class="book-close-btn" id="bookCloseBtn">&times;</span>
+    <iframe class="book-iframe" id="bookContentIframe" src="https://archive.org/embed/ifhehadbeenwithm0000nowl" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+  </div>
+</div>
+<!--scripts-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+      <script>
+        //eboek 1
+        document.getElementById('openEbook').addEventListener('click', function() {
+          let overlay = document.getElementById('ebookOverlay');
+          let iframe = document.getElementById('ebookIframe');
+          let closeBtn = document.getElementById('closeEbook');
     
+          // Set the source of the iframe
+          iframe.src = "https://archive.org/embed/adventuresofsher00doylrich";
+    
+          // Display the overlay
+          overlay.style.display = 'flex';
+    
+          // Close the ebook when the close button is clicked
+          closeBtn.addEventListener('click', function() {
+            overlay.style.display = 'none';
+            iframe.src = ''; // Clear the source to stop the video
+          });
+    
+          // Initialize Hammer.js for touch gestures
+          var hammer = new Hammer(overlay);
+    
+          // Enable horizontal swiping for page turning
+          hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+    
+          hammer.on('swipeleft', function() {
+            // Handle left swipe (turn to the next page)
+            // You can add your page-turning logic here
+            console.log('Swipe left');
+          });
+    
+          hammer.on('swiperight', function() {
+            // Handle right swipe (turn to the previous page)
+            // You can add your page-turning logic here
+            console.log('Swipe right');
+          });
+        });
+//eboek2
+    document.getElementById('openCustomEbook').addEventListener('click', function() {
+      let overlay = document.getElementById('customEbookOverlay');
+      let iframe = document.getElementById('customEbookIframe');
+      let closeBtn = document.getElementById('customCloseEbook');
+
+      // Set the source of the iframe
+      iframe.src = "https://archive.org/embed/pdfy-vJFcaYG7Xau9y5ZZ";
+
+      // Display the overlay
+      overlay.style.display = 'flex';
+
+      // Close the ebook when the close button is clicked
+      closeBtn.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        iframe.src = ''; // Clear the source to stop the video
+      });
+
+      // Initialize Hammer.js for touch gestures
+      var hammer = new Hammer(overlay);
+
+      // Enable horizontal swiping for page turning
+      hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+
+      hammer.on('swipeleft', function() {
+        // Handle left swipe (turn to the next page)
+        // You can add your page-turning logic here
+        console.log('Swipe left');
+      });
+
+      hammer.on('swiperight', function() {
+        // Handle right swipe (turn to the previous page)
+        // You can add your page-turning logic here
+        console.log('Swipe right');
+      });
+    });
+//eboek3
+document.getElementById('openEbooks').addEventListener('click', function() {
+    let popup = document.getElementById('ebookPopup');
+    let iframe = document.getElementById('ebookContentIframe');
+    let closeBtn = document.getElementById('closeEbookPopup');
+
+    // Set the source of the iframe
+    iframe.src ="https://archive.org/embed/kybalionstudyofh00thre";
+
+    // Display the popup
+    popup.style.display = 'flex';
+
+    // Close the ebook when the close button is clicked
+    closeBtn.addEventListener('click', function() {
+      popup.style.display = 'none';
+      iframe.src = ''; // Clear the source to stop the video
+    });
+
+    // Initialize Hammer.js for touch gestures
+    var hammer = new Hammer(popup);
+
+    // Enable horizontal swiping for page turning
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+
+    hammer.on('swipeleft', function() {
+      // Handle left swipe (turn to the next page)
+      // You can add your page-turning logic here
+      console.log('Swipe left');
+    });
+
+    hammer.on('swiperight', function() {
+      // Handle right swipe (turn to the previous page)
+      // You can add your page-turning logic here
+      console.log('Swipe right');
+    });
+  });
+  //eboek4
+  document.getElementById('openUniqueEbook').addEventListener('click', function() {
+    let popup = document.getElementById('uniquePopup');
+    let iframe = document.getElementById('uniqueContentIframe');
+    let closeBtn = document.getElementById('uniqueCloseBtn');
+  
+    // Set the source of the iframe
+    iframe.src = "https://archive.org/embed/gameoflifehowtop00shin" ;
+  
+    // Display the popup
+    popup.style.display = 'flex';
+  
+    // Close the ebook when the close button is clicked
+    closeBtn.addEventListener('click', function() {
+      popup.style.display = 'none';
+      iframe.src = ''; // Clear the source to stop the video
+    });
+  
+    // Initialize Hammer.js for touch gestures
+    var hammer = new Hammer(popup);
+  
+    // Enable horizontal swiping for page turning
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+  
+    hammer.on('swipeleft', function() {
+      // Handle left swipe (turn to the next page)
+      // You can add your page-turning logic here
+      console.log('Swipe left');
+    });
+  
+    hammer.on('swiperight', function() {
+      // Handle right swipe (turn to the previous page)
+      // You can add your page-turning logic here
+      console.log('Swipe right');
+    });
+  });
+  //eboek5
+  document.getElementById('openEbookModal').addEventListener('click', function() {
+    let modal = document.getElementById('ebookModal');
+    let iframe = document.getElementById('ebookContentIframe');
+    let closeBtn = document.getElementById('ebookCloseBtn');
+  
+    // Set the source of the iframe
+    iframe.src = "https://archive.org/embed/wonderfulwizardo00baumiala";
+  
+    // Display the modal
+    modal.style.display = 'flex';
+  
+    // Close the ebook when the close button is clicked
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      iframe.src = ''; // Clear the source to stop the video
+    });
+  
+    // Initialize Hammer.js for touch gestures
+    var hammer = new Hammer(modal);
+  
+    // Enable horizontal swiping for page turning
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+  
+    hammer.on('swipeleft', function() {
+      // Handle left swipe (turn to the next page)
+      // You can add your page-turning logic here
+      console.log('Swipe left');
+    });
+  
+    hammer.on('swiperight', function() {
+      // Handle right swipe (turn to the previous page)
+      // You can add your page-turning logic here
+      console.log('Swipe right');
+    });
+  });
+  //eboek6
+  document.getElementById('openBookPopup').addEventListener('click', function() {
+    let popup = document.getElementById('bookPopup');
+    let iframe = document.getElementById('bookContentIframe');
+    let closeBtn = document.getElementById('bookCloseBtn');
+  
+    // Set the source of the iframe
+    iframe.src = "https://archive.org/embed/ifhehadbeenwithm0000nowl";
+  
+    // Display the popup
+    popup.style.display = 'flex';
+  
+    // Close the book when the close button is clicked
+    closeBtn.addEventListener('click', function() {
+      popup.style.display = 'none';
+      iframe.src = ''; // Clear the source to stop the video
+    });
+  
+    // Initialize Hammer.js for touch gestures
+    var hammer = new Hammer(popup);
+  
+    // Enable horizontal swiping for page turning
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+  
+    hammer.on('swipeleft', function() {
+      // Handle left swipe (turn to the next page)
+      // You can add your page-turning logic here
+      console.log('Swipe left');
+    });
+  
+    hammer.on('swiperight', function() {
+      // Handle right swipe (turn to the previous page)
+      // You can add your page-turning logic here
+      console.log('Swipe right');
+    });
+  });
+  </script>
 </body>
 </html>
