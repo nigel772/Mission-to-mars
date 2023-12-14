@@ -5,8 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
     <title>Document</title>
+    <style>
+      p {
+        text-align: center;
+        font-size: 60px;
+        margin-top: 0px;
+        color: white;
+      }
+      .snelheid{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+      }
+      </style>
 </head>
 <body>
-    
+  
+    <header>
+        <!--drop down menu-->
+        <div class="wrapper">
+          <input id="toggler" type="checkbox">
+          <label for="toggler">
+            <img src="../images/menu.png" alt="menu" id="menu-icon-logo" width="50px">
+          </label>
+          <div class="dropdown">
+            <a href="fitness.html">Wellnes/fitness</a></br>
+            <a href="games.html">Games</a></br>
+            <a href="webcamfeeds.html">Webcamfeeds</a></br>
+            <a href="bibliotheek.html">Bibliotheek</a></br>
+            <a href="restaurant.html">Restaurant</a></br>
+            <a href="infovlucht.html">Vlucht-informatie</a></br>
+          </div>
+        </div>
+    <!--Logo-->
+    <a href="../index.html"><img src="../images/logo.png" class="logo" alt="logo"></a>
+  </header>
+  <div class="info">
+  <p id="klok"></p>
+  <script>
+  // datum tot wanneer
+  let countDownDate = new Date("Jul 14, 2024 12:00:00").getTime();
+  
+  // updtae elke 1 seconde
+  let x = setInterval(function() {
+  
+    // datum vandaag
+   let now = new Date().getTime();
+      
+    // verschil tussen de data's
+   let distance = countDownDate - now;
+      
+    // tijd berekeningen
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+    // de days, hours, minutes en seconds achter de cijfers
+    document.getElementById("klok").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+      
+    // als de tijd over is krijg je een message
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("klok").innerHTML = "U bent aangekomen op uw bestemming";
+    }
+  }, 1000);
+  </script>
+<p id class="snelheid"> Bestemming: Mars </br></br>
+  temperatuur op mars: -153 graden celsuis.</br>
+  temperatuur in de ruimte: -270 graden celsuis</br>
+  snelheid van het ruimteschip: 537 kilometer per seconde. </br>
+</div>
+<div class="info2"></div>
 </body>
 </html>
